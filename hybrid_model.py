@@ -7,9 +7,6 @@ class HybridModel(torch.nn.Module):
     def __init__(self, dropout=0.5):
         super().__init__()
         self.main_model = transformers.AutoModel.from_pretrained("prajjwal1/bert-tiny")
-        self.foreign_model = transformers.AutoModel.from_pretrained(
-            "prajjwal1/bert-tiny"
-        )
         self.dropout = torch.nn.Dropout(dropout)
 
     def increase_embedding_layer(self, hybrid_tokenizer):
